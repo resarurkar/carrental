@@ -1,22 +1,9 @@
 from multiprocessing import context
+from re import template
 from django.shortcuts import render
+from django.views.generic import ListView
 from .models import Post
 
-posts = [
-    {
-        'author': 'Sudha Murthey',
-        'title': 'Blog Post 1',
-        'content': 'First post content',
-        'date_posted' : 'April 13, 2022'
-    },
-    {
-        'author': 'Jordan peterson',
-        'title': 'Blog Post 2',
-        'content': 'second post content',
-        'date_posted' : 'April 15, 2022'
-    }
-
-]
 
 
 def home(request):
@@ -24,6 +11,13 @@ def home(request):
         'posts': Post.objects.all()
     }
     return render (request, 'blog/home.html', context)
+
+
+class PostListView(ListView):
+    model = Post
+    template_name = 'blog/home.html'
+    context_object_name = 'posts'
+
 
 def about(request):
     return render (request, 'blog/about.html', {'title' : 'About'})
