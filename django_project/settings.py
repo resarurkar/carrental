@@ -25,8 +25,7 @@ SECRET_KEY = '$syhahdepdd@5!-6&v2nqvjl$#o)z)ytpeg5a_ijfl3ko9$+do'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['http://blogapp-env.eba-42paisa6.eu-west-2.elasticbeanstalk.com/']
-
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
